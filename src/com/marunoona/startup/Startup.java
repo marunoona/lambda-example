@@ -1,16 +1,17 @@
 package com.marunoona.startup;
 
+import com.marunoona.example.ConcurrentGreeter;
 import com.marunoona.interfaces.Functionals;
 
 public class Startup {
     public static void main(String[] args) {
         /**
-         * ex1. thread
+         * ex01. thread
          */
         Runnable runnable = () -> System.out.println("Hello world");
         runnable.run();
         /**
-         * ex2. functional interface
+         * ex02. Functional Interface
          */
         Functionals functionals = (int a, int b) -> a + b;
         System.out.println("#1. Add : " + functionals.calculate(1, 2));
@@ -26,5 +27,11 @@ public class Startup {
 
         functionals = (x, y) -> (x / y);
         System.out.println("#5. Dividing : " + functionals.calculate(15, 3));
+
+        /**
+         * ex03. Method Reference
+         */
+        ConcurrentGreeter concurrentGreeter = new ConcurrentGreeter();
+        concurrentGreeter.greeter();
     }
 }
